@@ -2,7 +2,9 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { LocationList } from "./location/LocationList"
 import { LocationProvider } from "./location/LocationProvider"
-// import { ProductCard } from "./product/ProductCard"
+import { ProductProvider } from "./product/ProductProvider"
+import { ProductList } from "./product/ProductList"
+import { ProductTypeProvider } from "./product/ProductTypeProvider"
 
 export const ApplicationViews = () => {
     return (
@@ -13,9 +15,13 @@ export const ApplicationViews = () => {
                 </Route>
             </LocationProvider>
 
-            {/* <Route path="/products">
-                <ProductCard />
-            </Route> */}
+            <ProductTypeProvider>
+                <ProductProvider>
+                    <Route path="/products">
+                        <ProductList />
+                    </Route>
+                </ProductProvider>
+            </ProductTypeProvider>
 
         </>
     )
